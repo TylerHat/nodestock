@@ -1,3 +1,37 @@
-<h1>This is my Handlebars homepage...</h1> 
-<p> {{stuff}}</p>
-<p> {{stuff1}}</p>
+{{ posted_report }}<br/>
+
+<div class="jumbotron">
+  <h1 class="display-4">{{ stock.companyName }} ({{ stock.symbol  }})</h1>
+
+
+  <p class="lead">
+  <strong>IEX Realtime Price: </strong>${{ stock.iexRealtimePrice }}<br/>
+<br/>
+<strong>Latest Price: </strong>${{ stock.latestPrice }}<br/>
+<strong>Previous Close: </strong>${{ stock.previousClose }}<br/>
+<strong>Market Cap: </strong>${{ stock.marketCap }}<br/>
+<br/>
+<strong>IEX Realtime Size: </strong>{{ stock.iexRealtimeSize }}<br/>
+<strong>Change: </strong>{{ stock.change }}<br/>
+<strong>Average Total Volume: </strong>{{ stock.avgTotalVolume }}<br/>
+</p>
+ 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+{{#each stock}}
+{{@key}} | {{this}}<br/>
+
+{{/each}}
+
+-->
