@@ -1,5 +1,5 @@
 //Stock market app by Tyler Hatfield
-
+var today = new Date();
 const express = require('express');
 const app = express();
 const exphbs  = require('express-handlebars');
@@ -26,8 +26,23 @@ request('https://cloud.iexapis.com/stable/stock/' + ticker + '/quote?token=pk_b5
 		finishedAPI(body);
 		};
 	});	
-};
+//tester for graph
 
+
+
+
+};
+/*
+function callchart_api(donesoAPI, ticker){
+request('https://cloud.iexapis.com/stable/stock/' + ticker + '/intraday-prices?token=pk_b5523af07d924bd091cfcae3a1bda8a7', { json: true }, (err, res, body_2) => {
+	if(err) {return console.log(err);}
+		if (res.statusCode === 200){
+		//console.log(body);
+		donesoAPI(body_2);
+		};
+	});	
+}
+*/
 
 //set handlebars Middleware
 app.engine('handlebars', exphbs());
@@ -42,7 +57,31 @@ app.get('/', function (req, res) {
     		stock: doneAPI
    		 });
 	}, 'fb');
+	/*call_api(function(doneAPI){
+	res.render('home', {
+    	stock: doneAPI
+   	 });
+	}, 'fb');*/
 });
+/*
+//set handlebar index routes
+app.get('/', function (req, res) {
+	callchart_api(function(donesoAPI){
+		res.render('home', {
+    		chart: donechartAPI
+   		 });
+	}, 'fb');
+	/*call_api(function(doneAPI){
+	res.render('home', {
+    	stock: doneAPI
+   	 });
+	}, 'fb');
+});
+*/
+
+
+
+
 //call_api(function, req.body.stock_ticker )
 //set handlebar index post routes
 app.post('/', function (req, res) {
@@ -53,7 +92,16 @@ app.post('/', function (req, res) {
    		 });
 	}, req.body.stock_ticker);
 });
+/*
+app.post('/', function (req, res){
+	callchart_api(function(donechartAPI){
+			res.render('home', {
+			chart: donechartAPI,
+		});
 
+	}, req.body_2.stock_chart);
+});
+*/
 //set about page route
 app.get('/about.html', function (req, res) {
     res.render('about');
@@ -61,6 +109,7 @@ app.get('/about.html', function (req, res) {
 
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 

@@ -1,11 +1,11 @@
 {{ posted_report }}<br/>
 
 <div class="jumbotron">
-  <h1 class="display-4">{{ stock.companyName }} ({{ stock.symbol  }})</h1>
+  <h1 class="display-4">{{ stock.companyName }} ({{ stock.symbol }})</h1>
 
 
-  <p class="lead">
-  <strong>IEX Realtime Price: </strong>${{ stock.iexRealtimePrice }}<br/>
+ 
+<strong>IEX Realtime Price: </strong>${{ stock.iexRealtimePrice }}<br/>
 <br/>
 <strong>Latest Price: </strong>${{ stock.latestPrice }}<br/>
 <strong>Previous Close: </strong>${{ stock.previousClose }}<br/>
@@ -28,10 +28,5 @@
 
 
 
-<!--
-{{#each stock}}
-{{@key}} | {{this}}<br/>
 
-{{/each}}
 
--->
